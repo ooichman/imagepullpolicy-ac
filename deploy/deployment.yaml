@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ippac
+  namespace: kube-ippac
+spec:
+  selector:
+    matchLabels:
+      app: ippac
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ippac
+    spec:
+      containers:
+        - name: ippac
+          image: quay.io/ooichman/ippac:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8443
+          env:
+          - name: CERT_FILE
+            value: '/etc/certs/cert.pem'
+          - name: KEYFILE
+            value: '/etc/certs/key.pem'
+          - name: PORT 
+            value: '8443'
+          volumeMounts:
+          - name: ippac-certs
+            mountPath: /etc/certs
+            readOnly: true
+      volumes:
+      - name: ippac-certs
+        secret:
+          secretName: ippac-tls

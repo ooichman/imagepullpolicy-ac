@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ippac-example
+  namespace: imagepullpolicy-test
+spec:
+  selector:
+    matchLabels:
+      app: ippac-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ippac-example
+    spec:
+      containers:
+        - name: ippac-example
+          image: quay.io/ooichman/daemonize:latest
+          imagePullPolicy: Never

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centos-tools
+  namespace: kube-ippac
+spec:
+  selector:
+    matchLabels:
+      app: centos-tools
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: centos-tools
+    spec:
+      containers:
+        - name: centos-tools
+          image: quay.io/ooichman/admin-tools
