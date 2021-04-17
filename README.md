@@ -106,7 +106,7 @@ $ cd ..
 
 First deploy our test namespace:
 ```bash
-$ oc create -f tests/namespace.yaml
+$ kubectl create -f tests/namespace.yaml
 ```
 Now we can deploy both the deployment and the signal pod :
 ```bash
