@@ -9,7 +9,7 @@ In Order to use it (and Learn from it) all you need to do is clone the repositor
 
 ## Clone and Generate
 ```bash
-git clone https://github.com/ooichman/imagepullpolicy-ac.git
+$ git clone https://github.com/ooichman/imagepullpolicy-ac.git
 ```
 
 Now we need to run a couple of tasks before all of our setup is complete.
@@ -101,7 +101,7 @@ To test you rconfiguration I have created a tests directory so you can check you
 
 Go back to the main directory :
 ```bash
-$ cd..
+$ cd ..
 ```
 
 First deploy our test namespace:
