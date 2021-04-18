@@ -7,12 +7,21 @@ spec:
   selector:
     matchLabels:
       app: ippac
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
         app: ippac
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - ippac
       containers:
         - name: ippac
           image: quay.io/ooichman/ippac:latest
